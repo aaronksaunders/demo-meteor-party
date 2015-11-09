@@ -1,0 +1,51 @@
+<template name="home">
+    <div class="container">
+        <div>
+            <div>
+                <h3>Is the page rendering </h3>
+            </div>
+            <table class="u-full-width">
+                {{#each parties}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{location}}</td>
+                        <td><a class="button" id="editItem">Edit</a></td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+        <div>
+            <a class="button" id="newItem">Add New Party</a>
+        </div>
+    </div>
+</template>
+
+<template name="new-party">
+
+    <div class="container">
+        <form class="new-party">
+
+            <div class="eight columns">
+                {{#with party}}
+                    <label for="name">Name</label>
+                    <input class="u-full-width" type="text" id="name" value="{{name}}">
+
+                    <label for="description">Description</label>
+                    <input class="u-full-width" type="text" id="description" value="{{description}}">
+
+                    <label for="location">Location</label>
+                    <input class="u-full-width" type="text" id="location" value="{{location}}">
+                {{/with}}
+                <label for=""></label>
+                {{#if editing}}
+                    <button type="submit" class="submit">Edit Party</button>
+                {{else}}
+                    <button type="submit" class="submit">Create</button>
+                {{/if}}
+                <a class="button" href="/">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+
+</template>
